@@ -1,26 +1,28 @@
-from flask import Flask , render_template
-
+from flask import Flask ,render_template
+from data import Articles
 app = Flask(__name__)
-app.debug-True
-
+app.debug=True
+​
 @app.route('/')
 def index():
-    print("success")
-    # return = "TEST"
-    return render_template('about.html', hello = "GaryKim")
-
-    @app.route('/about')
+    print("Success")
+    # return "TEST"
+    return render_template('home.html',hello="GaryKim")
+​
+@app.route('/about')
 def about():
-    print("success")
-    # return = "TEST"
-    return render_template('about.html', hello = "GaryKim")
-
-     @app.route('/articles')
+    print("Success")
+    # return "TEST"
+    return render_template('about.html',hello="GaryKim")
+​
+@app.route('/articles')
 def articles():
-    print("success")
-    # return = "TEST"
-    return render_template('articles.html', hello = "GaryKim")
-
-if __name__=='__main__':
-    # app.run(host='0.0.0.0', post='8080')
+    print("Success")
+    # return "TEST"
+    articles = Articles()
+    print(len(articles))
+    return render_template('articles.html',articles=articles)
+​
+if __name__ =='__main__':
+    # app.run(host='0.0.0.0', port='8080')
     app.run()
